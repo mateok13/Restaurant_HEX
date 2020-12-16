@@ -8,7 +8,7 @@ Universidad del Cauca
 
 Integrantes:  
 
-    * Edynson Muñoz Jimenez 
+   * Edynson Muñoz Jimenez 
 
     * Jhonfer Ruiz Figueroa 
 
