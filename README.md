@@ -3,9 +3,11 @@
 
 ## Introducción
 
-_Aqui va una pequeña introducción_
+Laboratorio de ingenieria del software II "\n"
+Entrega poryecto final 
+Integrantes:  Edynson Muñoz Jimenez, Jhonfer , Jhonny Mateo Rosero, James Silva
+
 
 ## Documento
 
 __Aqui va el documento__
-* **DOC** - *Documentación* - [Domicell](aqui va la url)
