@@ -3,7 +3,10 @@
 
 ## Introducción
 
-_Aqui va una pequeña introducción_
+_Laboratorio de ingenieria del software II _
+_Entrega poryecto final _
+_Integrantes:  Edynson Muñoz Jimenez, Jhonfer , Jhonny Mateo Rosero, James Silva_
+_ _
 
 ## Documento
 
