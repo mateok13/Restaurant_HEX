@@ -10,9 +10,13 @@ Entrega poryecto final
 Integrantes:  
 
 -Edynson Muñoz Jimenez 
+
 -Jhonfer Ruiz Figueroa 
+
 -Jhonny Mateo Rosero Cortes 
+
 -James Silva 
+
 -Juan Camilo Gonzales Mulato
 
 
