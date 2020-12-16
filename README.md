@@ -30,4 +30,4 @@ El proyecto desarrolla la combinacion de los siguientes patrones arquitecturales
 
 ## Documento
 
-* ** Link** - *Documentación* - [hola](#https://drive.google.com/file/d/1wgd6-tQti9LU3BXahShLRiFcQ3A251R8/view?usp=sharing)
+* **Link** - *Documentación* - [hola](https://drive.google.com/file/d/1wgd6-tQti9LU3BXahShLRiFcQ3A251R8/view?usp=sharing)
