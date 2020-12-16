@@ -4,7 +4,7 @@
 ## Introducción
 
 Laboratorio de ingenieria del software II 
-Entrega poryecto final 
+_Entrega poryecto final 
 Integrantes:  Edynson Muñoz Jimenez, Jhonfer , Jhonny Mateo Rosero, James Silva
 
 
