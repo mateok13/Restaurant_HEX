@@ -20,6 +20,7 @@ import static java.util.logging.Level.SEVERE;
 import java.util.logging.Logger;
 import static java.util.logging.Logger.getLogger;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -80,11 +81,13 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRestaurantes = new javax.swing.JTable();
         lblImagenRestaurante = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JButton();
         pstHistorialPedido = new javax.swing.JPanel();
         lblEstadoDelPedido = new javax.swing.JLabel();
         cbxEstadoDelPedido = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPedidosEstado = new javax.swing.JTable();
+        btnCerrarSesion2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,21 +124,33 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblRestaurantes);
 
+        btnCerrarSesion.setText("CERRAR SESION");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pstHacerPedidoLayout = new javax.swing.GroupLayout(pstHacerPedido);
         pstHacerPedido.setLayout(pstHacerPedidoLayout);
         pstHacerPedidoLayout.setHorizontalGroup(
             pstHacerPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pstHacerPedidoLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pstHacerPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pstHacerPedidoLayout.createSequentialGroup()
-                        .addComponent(lblTipoRestaurante)
-                        .addGap(26, 26, 26)
-                        .addComponent(cbxTipoRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addGroup(pstHacerPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pstHacerPedidoLayout.createSequentialGroup()
+                                .addComponent(lblTipoRestaurante)
+                                .addGap(26, 26, 26)
+                                .addComponent(cbxTipoRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pstHacerPedidoLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblImagenRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(pstHacerPedidoLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblImagenRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(147, 147, 147)
+                        .addComponent(btnCerrarSesion)))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
         pstHacerPedidoLayout.setVerticalGroup(
@@ -143,14 +158,18 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
             .addGroup(pstHacerPedidoLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(pstHacerPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblImagenRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pstHacerPedidoLayout.createSequentialGroup()
+                        .addComponent(lblImagenRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pstHacerPedidoLayout.createSequentialGroup()
                         .addGroup(pstHacerPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTipoRestaurante)
                             .addComponent(cbxTipoRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(btnCerrarSesion)
+                        .addContainerGap())))
         );
 
         pstFrmPrnCli.addTab("HACER PEDIDO", pstHacerPedido);
@@ -186,18 +205,30 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblPedidosEstado);
 
+        btnCerrarSesion2.setText("CERRAR SESION");
+        btnCerrarSesion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesion2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pstHistorialPedidoLayout = new javax.swing.GroupLayout(pstHistorialPedido);
         pstHistorialPedido.setLayout(pstHistorialPedidoLayout);
         pstHistorialPedidoLayout.setHorizontalGroup(
             pstHistorialPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pstHistorialPedidoLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pstHistorialPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pstHistorialPedidoLayout.createSequentialGroup()
-                        .addComponent(lblEstadoDelPedido)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbxEstadoDelPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addGroup(pstHistorialPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pstHistorialPedidoLayout.createSequentialGroup()
+                                .addComponent(lblEstadoDelPedido)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbxEstadoDelPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pstHistorialPedidoLayout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(btnCerrarSesion2)))
                 .addContainerGap(309, Short.MAX_VALUE))
         );
         pstHistorialPedidoLayout.setVerticalGroup(
@@ -209,7 +240,9 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
                     .addComponent(cbxEstadoDelPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCerrarSesion2)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pstFrmPrnCli.addTab("HISTORIAL PEDIDO", pstHistorialPedido);
@@ -314,6 +347,22 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_tblPedidosEstadoMouseClicked
+
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        cerrarSesion();
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesion2ActionPerformed
+        cerrarSesion();
+    }//GEN-LAST:event_btnCerrarSesion2ActionPerformed
+    
+    private void cerrarSesion(){
+        GUILogin guiLogin = new GUILogin();
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Hasta pronto");
+        guiLogin.setVisible(true);
+        this.dispose();
+    }
     
     public void crearTablaHistoria(String estado) throws Exception {
         this.tblPedidosEstado.removeAll();
@@ -360,6 +409,8 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnCerrarSesion2;
     private javax.swing.JComboBox<String> cbxEstadoDelPedido;
     private javax.swing.JComboBox<String> cbxTipoRestaurante;
     private javax.swing.JScrollPane jScrollPane1;

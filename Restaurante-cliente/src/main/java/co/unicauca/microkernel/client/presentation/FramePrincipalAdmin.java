@@ -16,6 +16,7 @@ import co.unicauca.microkernel.client.gestionTabla.TablaRaciones;
 import co.unicauca.microkernel.common.entities.Cliente;
 import co.unicauca.microkernel.common.entities.Pedido;
 import co.unicauca.microkernel.common.entities.Restaurante;
+import co.unicauca.microkernel.common.infra.Utilities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -126,7 +127,7 @@ public class FramePrincipalAdmin extends JFrame {
         try {
             Cliente aux = this.servicioRestaurante.getClient(this.IdUsuario);
             if (aux != null){
-                this.lblNombreUsuario.setText("NOMBRE: "+aux.getNombre());
+                this.lblNombreUsuario.setText("NOMBRE: "+Utilities.desencriptar(aux.getNombre()));
                 this.lblDireccionUsuario.setText("DIRECCION: carrera "+ aux.getCarrera()+" calle "+aux.getCalle());
                 this.lblTipoUsuario1.setText("TIPO: "+aux.getTipo()+" de restaurante");
                 this.servicioRestaurante.fijarImagen(this.lblImagenUsuario, aux.getImagen(), "FOTOPERFIL");
@@ -159,6 +160,7 @@ public class FramePrincipalAdmin extends JFrame {
         lblDireccionUsuario = new javax.swing.JLabel();
         lblTipoUsuario1 = new javax.swing.JLabel();
         lblTituloRestaurante = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JButton();
         pnlRaciones = new javax.swing.JPanel();
         pnlFondoRaciones = new javax.swing.JPanel();
         lblFiltro = new javax.swing.JLabel();
@@ -167,6 +169,7 @@ public class FramePrincipalAdmin extends JFrame {
         tblRaciones = new javax.swing.JTable();
         lblImagenRacion = new javax.swing.JLabel();
         btnAgregarRacion = new javax.swing.JButton();
+        btnCerrarSesion2 = new javax.swing.JButton();
         pnlEspeciales = new javax.swing.JPanel();
         pnlFondoEspeciales = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -208,24 +211,37 @@ public class FramePrincipalAdmin extends JFrame {
         lblTituloRestaurante.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTituloRestaurante.setText("nombre de restaurante");
 
+        btnCerrarSesion.setText("CERRAR SESION");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlInfoUsuarioLayout = new javax.swing.GroupLayout(pnlInfoUsuario);
         pnlInfoUsuario.setLayout(pnlInfoUsuarioLayout);
         pnlInfoUsuarioLayout.setHorizontalGroup(
             pnlInfoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInfoUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pnlInfoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblDireccionUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblTipoUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblInformacionUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblImagenUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInfoUsuarioLayout.createSequentialGroup()
-                        .addComponent(lblNombreRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(pnlInfoUsuarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlInfoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDireccionUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblTipoUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblInformacionUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                            .addComponent(lblImagenUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInfoUsuarioLayout.createSequentialGroup()
+                                .addComponent(lblNombreRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbxRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(pnlInfoUsuarioLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(btnCerrarSesion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(pnlInfoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTituloRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblImagenInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -234,28 +250,29 @@ public class FramePrincipalAdmin extends JFrame {
         pnlInfoUsuarioLayout.setVerticalGroup(
             pnlInfoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInfoUsuarioLayout.createSequentialGroup()
-                .addGroup(pnlInfoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlInfoUsuarioLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(lblImagenUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlInfoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNombreRestaurante)
-                            .addComponent(cbxRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addComponent(lblInformacionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNombreUsuario)
-                        .addGap(2, 2, 2)
-                        .addComponent(lblTipoUsuario1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblDireccionUsuario))
-                    .addGroup(pnlInfoUsuarioLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(lblTituloRestaurante)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblImagenInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addComponent(lblTituloRestaurante)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblImagenInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(8, Short.MAX_VALUE))
+            .addGroup(pnlInfoUsuarioLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(lblImagenUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlInfoUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreRestaurante)
+                    .addComponent(cbxRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(lblInformacionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblNombreUsuario)
+                .addGap(2, 2, 2)
+                .addComponent(lblTipoUsuario1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDireccionUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(btnCerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout pnlInicioLayout = new javax.swing.GroupLayout(pnlInicio);
@@ -313,6 +330,13 @@ public class FramePrincipalAdmin extends JFrame {
             }
         });
 
+        btnCerrarSesion2.setText("CERRAR SESION");
+        btnCerrarSesion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesion2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlFondoRacionesLayout = new javax.swing.GroupLayout(pnlFondoRaciones);
         pnlFondoRaciones.setLayout(pnlFondoRacionesLayout);
         pnlFondoRacionesLayout.setHorizontalGroup(
@@ -326,12 +350,14 @@ public class FramePrincipalAdmin extends JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoRacionesLayout.createSequentialGroup()
                 .addGroup(pnlFondoRacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFondoRacionesLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgregarRacion, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38))
-                    .addGroup(pnlFondoRacionesLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlFondoRacionesLayout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(btnCerrarSesion2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAgregarRacion, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)))
                 .addComponent(lblImagenRacion, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -348,7 +374,11 @@ public class FramePrincipalAdmin extends JFrame {
                     .addGroup(pnlFondoRacionesLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAgregarRacion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pnlFondoRacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAgregarRacion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlFondoRacionesLayout.createSequentialGroup()
+                                .addComponent(btnCerrarSesion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(9, 9, 9)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -464,7 +494,7 @@ public class FramePrincipalAdmin extends JFrame {
             .addGroup(pnlPedidosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(375, Short.MAX_VALUE))
+                .addContainerGap(376, Short.MAX_VALUE))
         );
         pnlPedidosLayout.setVerticalGroup(
             pnlPedidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,6 +695,21 @@ public class FramePrincipalAdmin extends JFrame {
         }
     }//GEN-LAST:event_cbxRestauranteActionPerformed
 
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        cerrarSesion();
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnCerrarSesion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesion2ActionPerformed
+        cerrarSesion();
+    }//GEN-LAST:event_btnCerrarSesion2ActionPerformed
+
+    private void cerrarSesion(){
+        GUILogin guiLogin = new GUILogin();
+        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, "Hasta pronto");
+        guiLogin.setVisible(true);
+        this.dispose();
+    }
     private void serviceListarRaciones() throws Exception {
         if (varDia.equals("TODOS")) {
             this.raciones = servicioRestaurante.listMenuDayAll(idSeleccionado, "administrador");
@@ -715,6 +760,8 @@ public class FramePrincipalAdmin extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEspecial;
     private javax.swing.JButton btnAgregarRacion;
+    private javax.swing.JButton btnCerrarSesion;
+    private javax.swing.JButton btnCerrarSesion2;
     private javax.swing.JComboBox<String> cbxDia;
     private javax.swing.JComboBox<String> cbxRestaurante;
     private javax.swing.JScrollPane jScrollPane1;

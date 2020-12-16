@@ -138,7 +138,7 @@ public class Utilities {
      */
     public static String desencriptar(String s) throws UnsupportedEncodingException{
         byte[] decode = Base64.getDecoder().decode(s.getBytes());
-        return new String(decode, "sha256");
+        return new String(decode, "utf-8");
     }
 
 }
