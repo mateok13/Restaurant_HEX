@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.Date;
 import java.util.Properties;
 import javax.swing.Icon;
@@ -14,7 +16,7 @@ import javax.swing.ImageIcon;
 /**
  * Utilidades varias utilizadas por otras clases
  *
- * @author edynson muñoz, jhonfer, mateo, camilo james
+ * @author edynson muï¿½oz, jhonfer, mateo, camilo james
  */
 public class Utilities {
 
@@ -119,4 +121,24 @@ public class Utilities {
         }
         return myDia;
     }
+    /**
+     * encripta las palabras
+     * @param s
+     * @return
+     * @throws UnsupportedEncodingException 
+     */
+    public static String encriptar(String s) throws UnsupportedEncodingException{
+        return Base64.getEncoder().encodeToString(s.getBytes());
+    }
+     /**
+     * desencripta palabras encriptadas previamente
+     * @param s
+     * @return
+     * @throws UnsupportedEncodingException 
+     */
+    public static String desencriptar(String s) throws UnsupportedEncodingException{
+        byte[] decode = Base64.getDecoder().decode(s.getBytes());
+        return new String(decode, "sha256");
+    }
+
 }

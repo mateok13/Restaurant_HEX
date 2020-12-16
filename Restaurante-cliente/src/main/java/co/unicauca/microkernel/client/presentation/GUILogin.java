@@ -9,6 +9,7 @@ import co.unicauca.microkernel.client.access.Factory;
 import co.unicauca.microkernel.client.access.IClienteAccess;
 import co.unicauca.microkernel.client.domain.ClienteService;
 import co.unicauca.microkernel.common.entities.Cliente;
+import co.unicauca.microkernel.common.entities.ClienteCrypt;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -144,9 +145,7 @@ public class GUILogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        Cliente us = new Cliente();
-        us.setNombre(this.txtNombreUsu.getText());
-        us.setContrasenia(this.txtContrasenia.getText());
+        Cliente us = new ClienteCrypt(this.txtNombreUsu.getText(), this.txtContrasenia.getText());
         
         String re = "";
         String[] arrayResult = null;

@@ -712,7 +712,7 @@ public class ClienteAccessSocket implements IClienteAccess {
         return requestJson;
     }
     
-      private Cliente convertJsonClient(String respuestaConsulta){
+    private Cliente convertJsonClient(String respuestaConsulta){
         var gson=new Gson();
         var list = new TypeToken<List<Cliente>>(){}.getType();
         List<Cliente> lista = gson.fromJson(respuestaConsulta, list);
