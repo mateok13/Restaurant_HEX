@@ -1170,7 +1170,7 @@ public class RestauranteRepositorioMysql implements IPlatoRepositorio {
             while (rs.next()) {      
                 Cliente cli = new Cliente();
                 cli.setIdCliente(rs.getInt(1));
-                cli.setNombre(Utilities.desencriptar(rs.getString(2)));
+                cli.setNombre(rs.getString(2));
                 cli.setCarrera(rs.getInt(3));
                 cli.setCalle(rs.getInt(4));
                 cli.setImagen(rs.getBytes(5));
@@ -1183,8 +1183,6 @@ public class RestauranteRepositorioMysql implements IPlatoRepositorio {
         }catch (SQLException ex) {
             Logger.getLogger(RestauranteRepositorioMysql.class.getName()).log(Level.SEVERE, "obtener restaurante", ex);
             response = "FALLO";
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(RestauranteRepositorioMysql.class.getName()).log(Level.SEVERE, null, ex);
         }
         return response;
     }
