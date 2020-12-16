@@ -222,7 +222,11 @@ public class RestauranteServerSocket implements Runnable {
                 if (protocolRequest.getAction().equals("listarCarritoPlatoEspecial")) {
                     this.listarCarritoPlatoEspecial(protocolRequest);
                 }
+                if (protocolRequest.getAction().equals("registrarUsuario")) {
+                    this.administradorRegistrarUsuario(protocolRequest);
+                }
                 break;
+            
 
             //comprador solo tendra la opcion de visualizar, es decir un selec sobre la base de datos y enviarlos platoD cliente
             case "comprador":
@@ -291,6 +295,9 @@ public class RestauranteServerSocket implements Runnable {
                 }
                 if (protocolRequest.getAction().equals("listarHistoria")) {
                     this.listarHistorialPedidos(protocolRequest);
+                }
+                if (protocolRequest.getAction().equals("registrarUsuario")) {
+                    this.administradorRegistrarUsuario(protocolRequest);
                 }
                 
                 break;
@@ -741,5 +748,25 @@ public class RestauranteServerSocket implements Runnable {
         response = service.total(idCliente, idPedido);
         output.println(response);
         Logger.getLogger(RestauranteServerSocket.class.getName()).log(Level.SEVERE, "response: " + response + " idCliente:" + idCliente);
-    }  
+    }
+    
+    
+        private void administradorRegistrarUsuario(Protocol protocolRequest) {
+        //crea la instancia
+        Cliente cliente = new Cliente();
+        //se asignan los atributos de la instancia, segun los valores de los parametros
+        //el orden debe ser exacto
+        cliente.setNombre(protocolRequest.getParameters().get(0).getValue());
+        cliente.setCarrera(Integer.parseInt(protocolRequest.getParameters().get(1).getValue()));
+        cliente.setCalle(Integer.parseInt(protocolRequest.getParameters().get(2).getValue()));
+        cliente.setTipo(TipoClien.valueOf(protocolRequest.getParameters().get(3).getValue()));
+        cliente.setContrasenia(protocolRequest.getParameters().get(4).getValue());
+        cliente.setImagen(protocolRequest.getBytes());
+        //hacer validacion para esta, es decir sobre el parseo del dato
+        String response = null;
+        //el servicio comunicara con la base de datos,
+        System.out.println(cliente.getCarrera());
+        response = service.registrarCliente(cliente);
+        output.println(response);
+    }
 }

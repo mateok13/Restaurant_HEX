@@ -60,6 +60,15 @@ public class Cliente {
         this.contrasenia = contrasenia;
         this.imagen = imagen;
     }
+    public Cliente(String nombre, int carrera, int calle, TipoClien tipo, String contrasenia, byte[] imagen) {
+
+        this.nombre = nombre;
+        this.carrera = carrera;
+        this.calle = calle;
+        this.tipo = tipo;
+        this.contrasenia = contrasenia;
+        this.imagen = imagen;
+    }
     /**
      * constructor parametrizado
      * @param nombre nombre se usuario

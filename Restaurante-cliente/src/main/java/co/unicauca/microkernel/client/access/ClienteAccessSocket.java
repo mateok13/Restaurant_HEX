@@ -956,5 +956,33 @@ public class ClienteAccessSocket implements IClienteAccess {
 
         return requestJson;
     }
+    @Override
+    public String registrarCliente(Cliente cliente, String resource)throws Exception{
+        String jsonResponse = null;
+        //devuelve un string en formato Json que lo que se enviara
+        var requestJson = clienteJson(cliente,resource);
+        if((this.procesarConexion(requestJson).equals("FALLO"))){
+            return null;
+        }
+        return cliente.getNombre();
+    }
+    private String clienteJson(Cliente cliente, String resource){
+        var protocol = new Protocol();
+        protocol.setResource(resource);
+        protocol.setAction("registrarUsuario");
+        protocol.addParameter("nombre", ""+cliente.getNombre());
+        protocol.addParameter("carrera", ""+cliente.getCarrera());
+        protocol.addParameter("calle", ""+cliente.getCalle());
+        protocol.addParameter("tipo", cliente.getTipo().toString());
+        protocol.addParameter("contraseña", cliente.getContrasenia());
+        protocol.setBytes(cliente.getImagen());
+
+        System.out.println(protocol.getParameters().get(2).getValue());
+        Gson gson = new Gson();
+        String requestJson = gson.toJson(protocol);
+        System.out.println("json: "+requestJson);
+
+        return requestJson;
+    }
 
 }

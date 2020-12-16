@@ -112,5 +112,7 @@ public interface IClienteAccess {
     public String impuestoRestaurante(int idCliente, int idPedido)throws Exception;
     
     public String total(int idCliente, int idPedido)throws Exception;
+    
+    public String registrarCliente(Cliente cliente, String resource)throws Exception;
 
 }

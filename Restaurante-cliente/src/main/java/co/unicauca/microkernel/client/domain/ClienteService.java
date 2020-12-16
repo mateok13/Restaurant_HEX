@@ -124,6 +124,9 @@ public class ClienteService {
     public List<Pedido> listPedido(int idres) throws Exception{
         return service.listPedido(idres);
     }
+    public String registrarCliente(Cliente cliente, String resource)throws Exception{
+        return service.registrarCliente(cliente, resource);
+    }
     
     public Restaurante getRestaurante(int id) throws Exception{
         Restaurante aux = service.getRestaurante(id);

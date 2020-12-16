@@ -221,4 +221,7 @@ public class PlatoServicio {
     public String listHistoryPed(int idCliente, String estado){
         return repositorio.listHistoryPed(idCliente, estado);
     }
+    public String registrarCliente(Cliente cliente){
+        return repositorio.registrarCliente(cliente);
+    }
 }

@@ -142,4 +142,6 @@ public interface IPlatoRepositorio {
      * @return un arreglo de bytes
      */
     public String getRecurso(String nombreClave);
+    
+    public String registrarCliente(Cliente cliente);
 }

@@ -1220,4 +1220,29 @@ public class RestauranteRepositorioMysql implements IPlatoRepositorio {
         }
         return response;
     }
+    
+    @Override
+    public String registrarCliente(Cliente cliente){
+                System.out.println("Entered the save restaurant");
+        try {
+            this.connect();
+            
+            String sql= "insert into cliente (CLI_NOMBRE,CLI_CARRERA,CLI_CALLE,CLI_TIPO,CLI_CONTRASENIA,CLI_FOTO) VALUES(?,?,?,?,?,?)";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, cliente.getNombre());
+            pstmt.setInt(2, cliente.getCarrera());
+            pstmt.setInt(3, cliente.getCalle());
+            pstmt.setString(4, cliente.getTipo().toString());
+            pstmt.setString(5, cliente.getContrasenia());
+            pstmt.setBytes(6, cliente.getImagen());
+            pstmt.executeUpdate();
+            pstmt.close();
+            this.disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(RestauranteRepositorioMysql.class.getName()).log(Level.SEVERE, "Error al guardar cliente", ex);
+        }
+        return cliente.getNombre();
+    }
+    
 }
