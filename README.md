@@ -9,15 +9,15 @@ Proyecto final
 
 Integrantes:  
 
-  *Edynson Muñoz Jimenez 
+  * Edynson Muñoz Jimenez 
 
-  *Jhonfer Ruiz Figueroa 
+  * Jhonfer Ruiz Figueroa 
 
-  *Jhonny Mateo Rosero Cortes 
+  * Jhonny Mateo Rosero Cortes 
 
-  *James Silva 
+  * James Silva 
 
-  *Juan Camilo Gonzales Mulato
+  * Juan Camilo Gonzales Mulato
 
 
 ## Documento
