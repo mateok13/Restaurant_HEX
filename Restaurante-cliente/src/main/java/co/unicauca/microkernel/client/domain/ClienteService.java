@@ -3,15 +3,13 @@ package co.unicauca.microkernel.client.domain;
 import co.unicauca.microkernel.client.access.IClienteAccess;
 import java.util.List;
 import co.unicauca.microkernel.common.entities.*;
-import co.unicauca.microkernel.common.infra.Protocol;
 import co.unicauca.microkernel.common.infra.Utilities;
 import javax.swing.JLabel;
 
 /**
- * servicios que el cliente puede usar del servidor (mascaras)
+ * Servicios que el cliente puede usar del servidor (mascaras)
  * se comunica con la capa de bajo nivel que envia la solicitud
- * @author EdynsonMJ
- * @author Jhonny Rosero
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class ClienteService {
     private final IClienteAccess service;

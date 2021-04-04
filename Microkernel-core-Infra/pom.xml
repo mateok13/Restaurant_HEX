@@ -7,15 +7,20 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>Microkernel-common</artifactId>
-            <version>0.1.0</version>
-        </dependency>
-        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.6</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.20</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Microkernel-common</artifactId>
+            <version>0.1.0</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -39,11 +44,6 @@
             <artifactId>Microkernel-tradicional-plugin</artifactId>
             <version>0.1.0</version>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.20</version>
         </dependency>
     </dependencies>
     <properties>

@@ -3,8 +3,8 @@ package co.unicauca.microkernel.core.infra;
 import co.unicacuca.microkernel.core.dominio.IPlatoRepositorio;
 
 /**
- *fabrica que instacia un repositorio concreto, este repositorio accede a la base de datos
- * @author EdynsonMJ,Jhonny Rosero
+ * Fabrica que instacia un repositorio concreto, este repositorio accede a la base de datos
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class FabricaRepositorio {
     

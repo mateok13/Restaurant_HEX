@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 import co.unicauca.microkernel.client.domain.ClienteService;
@@ -18,8 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz Agregar plato especial
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class AgregarEspecial extends javax.swing.JFrame {
 
@@ -29,6 +24,9 @@ public class AgregarEspecial extends javax.swing.JFrame {
     private int mene_id;
     /**
      * Creates new form AgregarEspecial
+     * @param cliente
+     * @param frame
+     * @param mene_id
      */
     public AgregarEspecial(ClienteService cliente, FramePrincipalAdmin frame,int mene_id) {
         this.mene_id=mene_id;

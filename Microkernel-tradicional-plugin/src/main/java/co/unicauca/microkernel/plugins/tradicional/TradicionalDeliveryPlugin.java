@@ -2,9 +2,10 @@ package co.unicauca.microkernel.plugins.tradicional;
 
 import co.unicauca.microkernel.common.entities.Delivery;
 import co.unicauca.microkernel.common.interfaces.IDeliveryPlugin;
+
 /**
  * Plugin para restaurantes tipicos
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class TradicionalDeliveryPlugin implements IDeliveryPlugin {
     /**
@@ -14,14 +15,12 @@ public class TradicionalDeliveryPlugin implements IDeliveryPlugin {
      */
     @Override
     public int calculateCostDomicile(Delivery delivery) {
-        
-        int distancia = (int)(delivery.getDistance());
+        double distancia = delivery.getDistance();
 
         int cost;
         
-        cost = (distancia*50);
+        cost = (int) (distancia*50);
         
-
         return cost;
     }
     /**
@@ -31,12 +30,11 @@ public class TradicionalDeliveryPlugin implements IDeliveryPlugin {
      */
     @Override
     public int impuestoRestaurante(Delivery delivery){
-        int sumaOrder = delivery.getPrecio();
+        double sumaOrder = delivery.getPrecio();
         
         int cost;
         
-        cost = sumaOrder+(int)(sumaOrder*0.11);
-        
+        cost = (int) (sumaOrder+(sumaOrder*0.11));    
 
         return cost;
     }

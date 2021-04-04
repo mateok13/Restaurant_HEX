@@ -2,9 +2,10 @@ package co.unicauca.microkernel.plugins.oriental;
 
 import co.unicauca.microkernel.common.entities.Delivery;
 import co.unicauca.microkernel.common.interfaces.IDeliveryPlugin;
+
 /**
  * Plugin para restaurantes orientales
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class OrientalDeliveryPlugin implements IDeliveryPlugin {
     /**
@@ -13,32 +14,30 @@ public class OrientalDeliveryPlugin implements IDeliveryPlugin {
      * @return 
      */
     @Override
-    public int calculateCostDomicile(Delivery delivery) {
-        
-        int distancia = (int)(delivery.getDistance());
+    public int calculateCostDomicile(Delivery delivery) {       
+        double distancia = delivery.getDistance();
 
         int cost;
         
-        cost = (int)(distancia*200);
-        
+        cost = (int)(distancia*200);  
 
         return cost;
     }
-     /**
-     * el impuesto varia del tipo del restaurante este impuesto es sobre el valor total de los platos
+    /**
+     * el impuesto varia del tipo del restaurante este impuesto es sobre el
+     * valor total de los platos
+     *
      * @param delivery
-     * @return 
+     * @return
      */
-
     @Override
     public int impuestoRestaurante(Delivery delivery){
-        int sumaOrder = delivery.getPrecio();
+        double sumaOrder = delivery.getPrecio();
         
         int cost;
         
-        cost = sumaOrder+(int)(sumaOrder*0.2);
+        cost = (int) (sumaOrder+(sumaOrder*0.2));
         
-
         return cost;
     }
 }

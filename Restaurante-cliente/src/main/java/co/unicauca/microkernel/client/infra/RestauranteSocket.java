@@ -10,9 +10,9 @@ import static java.util.logging.Level.SEVERE;
 import static java.util.logging.Logger.getLogger;
 
 /**
- *establece las configuaciones para la comunicacion con el cliente, (es usada)
+ * Establece las configuaciones para la comunicación con el cliente, (es usada)
  * no modificar esta clase.
- * @author EdynsonMJ
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class RestauranteSocket {
     /**
@@ -49,7 +49,6 @@ public class RestauranteSocket {
         input = new Scanner(socket.getInputStream());
         output = new PrintStream(socket.getOutputStream());
         output.flush();
-
         // Enviar la solicitud
         output.println(requestJson);
 
@@ -88,5 +87,4 @@ public class RestauranteSocket {
         socket = new java.net.Socket(IP_SERVER, PORT);
         getLogger("SocketClient").log(INFO, "Socket establecido");
     }
-
 }

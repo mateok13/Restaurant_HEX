@@ -1,31 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 import co.unicauca.microkernel.client.access.Factory;
 import co.unicauca.microkernel.client.access.IClienteAccess;
 import co.unicauca.microkernel.client.domain.ClienteService;
-import co.unicauca.microkernel.client.gestionTabla.TablaCarritoEspeciales;
-import co.unicauca.microkernel.client.gestionTabla.TablaCarritoEspecialesCf;
-import co.unicauca.microkernel.client.gestionTabla.TablaCarritoRacion;
-import co.unicauca.microkernel.client.gestionTabla.TablaCarritoRacionCf;
-import co.unicauca.microkernel.client.gestionTabla.TablaEspecialesHaP;
-import co.unicauca.microkernel.client.gestionTabla.TablaRacionesHaP;
-import co.unicauca.microkernel.common.entities.CarritoG;
-import co.unicauca.microkernel.common.entities.CategoriaEnum;
 import co.unicauca.microkernel.common.entities.Cliente;
 import co.unicauca.microkernel.common.entities.ClienteCrypt;
-import co.unicauca.microkernel.common.entities.Pedido;
-import co.unicauca.microkernel.common.entities.PlatoEspecial;
-import co.unicauca.microkernel.common.entities.RacionDia;
 import co.unicauca.microkernel.common.entities.TipoClien;
 import co.unicauca.microkernel.common.infra.Utilities;
 import static java.awt.Image.SCALE_SMOOTH;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -35,17 +17,15 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz de Registro usuario
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class RegistrarUsuario extends javax.swing.JFrame {
-
     IClienteAccess service;
     ClienteService servicioRegistro;
     String ruta;
     String tipoCliente;
     Cliente cliente;
-    
 
     public RegistrarUsuario(ClienteService cliente) {
         service = Factory.getInstance().getClienteService();
@@ -304,7 +284,6 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
     private void txtCarreraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCarreraKeyTyped
         char caracter = evt.getKeyChar();
-
         if (((caracter < '0')
                 || (caracter > '9'))
                 && (caracter != '\b')) {
@@ -314,7 +293,6 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
     private void txtCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyTyped
         char caracter = evt.getKeyChar();
-
         if (((caracter < '0')
                 || (caracter > '9'))
                 && (caracter != '\b')) {
@@ -348,8 +326,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(rootPane, "ERROR FATAL, NO SE PUDO CUMPLIR LA PETICION, REVISE LOS DATOS DIGITADOS", "ERROR", JOptionPane.CLOSED_OPTION);
             Logger.getLogger(AgregarRacion.class.getName()).log(Level.SEVERE, null, ex);
             return;
-        }
-            
+        }     
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void limpiarCampos() {
@@ -358,14 +335,12 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     }
 
     private void habilitarInicio() {
-
         if (this.txtNombreUsu.getText().isBlank() || this.txtContraseña.getText().isBlank() || this.txtCalle.getText().isBlank()
                 || this.txtCarrera.getText().isBlank() || this.txtConfiContraseña.getText().isBlank()) {
             this.btnRegistrarse.setEnabled(false);
         } else {
             this.btnRegistrarse.setEnabled(true);
         }
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

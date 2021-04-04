@@ -1,12 +1,10 @@
 package co.unicauca.microkernel.common.entities;
 
 /**
- * representa un pedido especial
- *
- * @author edynson, camilo, jhonfer, james, mateo
+ * Representa un pedido especial
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class PlatoEspecialPed {
-
     /**
      * identificador del palto especial
      */
@@ -15,14 +13,21 @@ public class PlatoEspecialPed {
      * identificador del pedido
      */
     private int pedId;
+    /**
+     * identificador del plato pedido
+     */
     private int plaeId;
     /**
      * cantidad
      */
     private int cantidad;
-
+    
     /**
-     *
+     * Constructor por Defecto
+     */
+    public PlatoEspecialPed() {}
+    /**
+     * Constructor Parametrizado
      * @param plaepId
      * @param pedId
      * @param plaeId
@@ -34,16 +39,22 @@ public class PlatoEspecialPed {
         this.plaeId = plaeId;
         this.cantidad = cantidad;
     }
-
+    /**
+     * COnstructor Parametrizado
+     * @param pedId
+     * @param plaeId
+     * @param cantidad 
+     */
     public PlatoEspecialPed(int pedId, int plaeId, int cantidad) {
         this.pedId = pedId;
         this.plaeId = plaeId;
         this.cantidad = cantidad;
     }
- //SET AND GET
-    public PlatoEspecialPed() {
-    }
-
+    
+    /**
+     * Getter y setter
+     * @return 
+     */    
     public int getPlaepId() {
         return plaepId;
     }
@@ -75,5 +86,4 @@ public class PlatoEspecialPed {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-
 }

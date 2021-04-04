@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 import co.unicauca.microkernel.client.domain.ClienteService;
@@ -19,8 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz de agregar Raciones
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class AgregarRacion extends javax.swing.JFrame {
     private ClienteService cliente;
@@ -32,8 +27,8 @@ public class AgregarRacion extends javax.swing.JFrame {
      * Creates new form FrameEdynson
      * @param cliente
      * @param frame
+     * @param idRestaurante
      */
-
     public AgregarRacion(ClienteService cliente, FramePrincipalAdmin frame,int idRestaurante) {
         this.cliente = cliente;
         this.frame = frame;

@@ -1,8 +1,8 @@
 package co.unicauca.microkernel.common.entities;
 
 /**
- *representa las reciones que estan asociadas a un dia de la semana
- * @author edynoson muñoz, jhonfer, mateo, james, camilo
+ * Representa las reciones que estan asociadas a un dia de la semana
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class RacionDia {
     /**
@@ -31,11 +31,11 @@ public class RacionDia {
     private byte [] imagen;
 
     /**
-     * constructor parametrizado
+     * constructor por defecto
      */
     public RacionDia(){};
     /**
-     * constructor por defecto
+     * constructor parametrizado
      * @param racId identificador de la racion
      * @param tipo tipo de racion
      * @param precio costo de la porcion
@@ -51,7 +51,11 @@ public class RacionDia {
         this.menuId = menuId;
         this.imagen=imagen;
     }
-    //SET AND GET
+    
+    /**
+     * Getter y setter
+     * @return 
+     */
     public int getRacId() {
         return racId;
     }
@@ -98,6 +102,5 @@ public class RacionDia {
 
     public void setImagen(byte[] imagen) {
         this.imagen = imagen;
-    }
-    
+    } 
 }

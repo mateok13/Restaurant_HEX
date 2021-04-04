@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 
@@ -21,8 +16,8 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz de modificar los platos especiales
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class ModificarEspecial extends javax.swing.JFrame {
 
@@ -31,7 +26,7 @@ public class ModificarEspecial extends javax.swing.JFrame {
     private FramePrincipalAdmin frame;
 
     /**
-     * Creates new form FrameEdynson
+     * Creates new form Frame
      */
     public ModificarEspecial(PlatoEspecial plato, ClienteService cliente, FramePrincipalAdmin frame) {
         this.setVisible(true);
@@ -270,7 +265,6 @@ public class ModificarEspecial extends javax.swing.JFrame {
         var j = new JFileChooser();
         var fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         j.setFileFilter(fil);
-
         var s = j.showOpenDialog(this);
         if (s == APPROVE_OPTION) {
             var ruta = j.getSelectedFile().getAbsolutePath();
@@ -334,7 +328,6 @@ public class ModificarEspecial extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPrecioKeyTyped
 
     private void txtPrecioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyReleased
-
         this.habilitarBtnActualizar();
     }//GEN-LAST:event_txtPrecioKeyReleased
 

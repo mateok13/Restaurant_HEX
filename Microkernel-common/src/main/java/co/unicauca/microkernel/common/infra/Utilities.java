@@ -16,12 +16,11 @@ import javax.swing.ImageIcon;
 /**
  * Utilidades varias utilizadas por otras clases
  *
- * @author edynson mu�oz, jhonfer, mateo, camilo james
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class Utilities {
-
     /**
-     * Cargar una propiedadd de config.properties
+     * Cargar una propiedad de config.properties
      *
      * @param key llave de la propiedad
      * @return valor de la propiedad

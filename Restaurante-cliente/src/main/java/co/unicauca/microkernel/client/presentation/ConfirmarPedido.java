@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 import static co.unicauca.microkernel.client.access.Factory.getInstance;
@@ -13,19 +8,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz de confirmación de pedido
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class ConfirmarPedido extends javax.swing.JFrame {
     IClienteAccess service;
-    ClienteService servicioRestaurante;
-    
+    ClienteService servicioRestaurante;  
     public static int domi;
     public static int sum;
     public static int imp;
     public static int tot;
-
-    
     private Pedido pedido;
     
     public ConfirmarPedido(Pedido pedido, ClienteService cliente) throws Exception {
@@ -35,24 +27,25 @@ public class ConfirmarPedido extends javax.swing.JFrame {
         //instancia el pedido
         this.pedido = pedido;
         //captura los datos necesarios para crear la factura
-        String suma = servicioRestaurante.sumOrder(pedido.getCliente(), pedido.getIdPedido());
-        String impuesto = servicioRestaurante.impuestoRestaurante(pedido.getCliente(), pedido.getIdPedido());
-        String domicilio = servicioRestaurante.priceDomicileOrder(pedido.getCliente(), pedido.getIdPedido());
-        String TOTAL = servicioRestaurante.total(pedido.getCliente(), pedido.getIdPedido());
+        String suma = servicioRestaurante.sumOrder(pedido.getCliente(), pedido.getIdPedido()); 
+        String res = servicioRestaurante.total(pedido.getCliente(), pedido.getIdPedido());
         //parsea los datos para poder hacer las operaciones necesariass para la realizacion de la factura
-        domi = Integer.parseInt(domicilio);
-        sum = Integer.parseInt(suma);
-        imp = Integer.parseInt(impuesto);
-        tot = Integer.parseInt(TOTAL);
-        
+        String [] TOTAL = res.split("-");
+        if (TOTAL.length>=3) {
+            System.out.println("SUMA NETO: "+suma);
+            System.out.println("IMPUESTO: " + TOTAL[2]);
+            System.out.println("DOMICILIO: " + TOTAL[1]);
+            System.out.println("TOTAL: " + TOTAL[0]);
+            imp = Integer.parseInt(TOTAL[2]);
+            domi = Integer.parseInt(TOTAL[1]);
+            sum = Integer.parseInt(suma);
+            tot = Integer.parseInt(TOTAL[0]);  
+        }  
         initComponents();
         lblSumaOrdenesR.setText(String.valueOf(sum));
         lblImpuestoPedido.setText(String.valueOf(imp));
         lblPrecioDomicilio.setText(String.valueOf(domi));
         lblTotalR.setText(String.valueOf(tot));
-        
-        System.out.println("alsd,"+pedido.getIdPedido());
-        
     }
 
     @SuppressWarnings("unchecked")

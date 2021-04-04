@@ -1,8 +1,8 @@
 package co.unicauca.microkernel.common.entities;
 
 /**
- * representa un menu que corresponde a un dia y esta asociado a un los resturantes
- * @author edynson muñoz, jhonfer, camilo, james , mateo
+ * Representa un menu que corresponde a un dia y esta asociado a un los resturantes
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class MenuDia {
     /**
@@ -30,7 +30,10 @@ public class MenuDia {
         this.resId = resId;
     }
 
-    // SET AND GET
+    /**
+     * Getter y setter
+     * @return 
+     */
     public int getIdMenu() {
         return idMenu;
     }
@@ -38,7 +41,6 @@ public class MenuDia {
     public void setIdMenu(int idMenu) {
         this.idMenu = idMenu;
     }
-
 
     public DiaEnum getDiaSem() {
         return diaSem;
@@ -55,7 +57,4 @@ public class MenuDia {
     public void setResId(int resId) {
         this.resId = resId;
     }
-    
-    
-    
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 import static co.unicauca.microkernel.client.access.Factory.getInstance;
@@ -31,11 +26,10 @@ import static javax.swing.JOptionPane.OK_CANCEL_OPTION;
 import static javax.swing.JOptionPane.showConfirmDialog;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz para usuario Administrador
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class FramePrincipalAdmin extends JFrame {
-
     //listas
     List<RacionDia> raciones;
     List<PlatoEspecial> especiales;
@@ -53,7 +47,7 @@ public class FramePrincipalAdmin extends JFrame {
     private String photoNull;
     private List<Pedido> pedidos;
     private int IdUsuario;
-
+    
     /**
      * Creates new form FramePrincipalAdmin
      * @param idRestaurantes
@@ -73,7 +67,7 @@ public class FramePrincipalAdmin extends JFrame {
             tabRaciones = new TablaRaciones();
             tabEspeciales = new TablaEspeciales();
             tabPedidos=new TablaPedidos();
-            //INICIANDO COMPONENENTES
+            //INICIANDO COMPONENTES
             initComponents();
             //INICIALIZANDO TABLAS Y LLENANDO LISTAS
             raciones = new ArrayList<>();
@@ -88,7 +82,6 @@ public class FramePrincipalAdmin extends JFrame {
         } catch (Exception ex) {
             getLogger(FramePrincipalAdmin.class.getName()).log(SEVERE, null, ex);
         }
-        //this.setVisible(true);
     }
 
     private void estilo() {
@@ -555,7 +548,6 @@ public class FramePrincipalAdmin extends JFrame {
                                 + this.raciones.get(fila).getNombre()
                                 + "\"?", "Eliminar Registro", JOptionPane.YES_NO_OPTION
                                 , JOptionPane.QUESTION_MESSAGE)) == JOptionPane.YES_OPTION) {
-
                             if (this.servicioRestaurante.deleteRacionDia(clave) == "FALLO") {
                                 JOptionPane.showMessageDialog(rootPane, "El registro no existe");
                             } else {
@@ -623,14 +615,12 @@ public class FramePrincipalAdmin extends JFrame {
                                 this.servicioRestaurante.fijarImagen(this.lblImagenEspecial, null, "FOTONULA");
                                 this.crearTablaEspeciales();
                                 JOptionPane.showMessageDialog(rootPane, "operacion exitosa");
-                            }
-                            
+                            } 
                         }
                     } catch (Exception ex) {
                         showConfirmDialog(null, "OPERACION FALLIDA", "Confirmar", OK_CANCEL_OPTION);
                     }
-
-                    //EVENTOS ELIMINAR
+                    //Eventos de eliminar
                 }
                 if (value instanceof JCheckBox) {
                     //((JCheckBox)value).doClick();
@@ -641,7 +631,6 @@ public class FramePrincipalAdmin extends JFrame {
                     if (ch.isSelected() == false) {
                         ch.setSelected(true);
                     }
-
                 }
             }
     }//GEN-LAST:event_tblEspecialesMouseClicked

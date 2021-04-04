@@ -2,14 +2,14 @@ package co.unicauca.microkernel.common.entities;
 
 /**
  * Envio
- * @author james, edynson, camilo, jhonfer, mateo
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class Delivery {
 
     /**
      * precio de envio
      */
-    private int precio;
+    private double precio;
     /**
      * distacia
      */
@@ -18,14 +18,24 @@ public class Delivery {
      * codigo de agrupacion 
      */
     private String resCode;
-
-    public Delivery(int precio, double distance, String resCode) {
+    
+    /**
+     * Constructor Parametrizado
+     * @param precio
+     * @param distance
+     * @param resCode 
+     */
+    public Delivery(double precio, double distance, String resCode) {
         this.precio = precio;
         this.distance = distance;
         this.resCode = resCode;
     }
-
-    public int getPrecio() {
+    
+    /**
+     * Getter y setter
+     * @return 
+     */
+    public double getPrecio() {
         return precio;
     }
 
@@ -47,8 +57,5 @@ public class Delivery {
 
     public void setResCode(String resCode) {
         this.resCode = resCode;
-    }
-
-    
-    
+    } 
 }

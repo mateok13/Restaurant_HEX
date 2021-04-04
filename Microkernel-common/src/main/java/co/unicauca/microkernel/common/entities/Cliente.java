@@ -2,7 +2,7 @@ package co.unicauca.microkernel.common.entities;
 
 /**
  * representa un cliente de para la aplicacion.
- * @author edynson muñoz, jhonfer ruiz, camilo mulato, james, mateo
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class Cliente {
     /**
@@ -22,7 +22,7 @@ public class Cliente {
      */
     private int calle;
     /**
-     * para la aplicacion puede ser un comprador o cliente comun, un administrador o dueño de restaurante
+     * para la aplicacion puede ser un comprador o cliente comun, un administrador o dueï¿½o de restaurante
      */
     private TipoClien tipo;
     /**
@@ -37,20 +37,20 @@ public class Cliente {
      * un id de restaurante si es que esta asociado a uno.
      */
     private int idrestaurante;
-/**
- * constructor por defecto
- */
+    /**
+     * constructor por defecto
+     */
     public Cliente() {};
-/**
- * constructor parametrizado
- * @param idCliente identificador
- * @param nombre nombre del usuario
- * @param carrera direccion
- * @param calle direccion
- * @param tipo administrador o comprador
- * @param contrasenia una contraseña para su cuenta
- * @param imagen imagen o foto que lo representa
- */
+    /**
+    * constructor parametrizado
+    * @param idCliente identificador
+    * @param nombre nombre del usuario
+    * @param carrera direccion
+    * @param calle direccion
+    * @param tipo administrador o comprador
+    * @param contrasenia una contraseï¿½a para su cuenta
+    * @param imagen imagen o foto que lo representa
+    */
     public Cliente(int idCliente, String nombre, int carrera, int calle, TipoClien tipo, String contrasenia, byte[] imagen) {
         this.idCliente = idCliente;
         this.nombre = nombre;
@@ -60,6 +60,15 @@ public class Cliente {
         this.contrasenia = contrasenia;
         this.imagen = imagen;
     }
+    /**
+     * Constructor Parametrizado
+     * @param nombre
+     * @param carrera
+     * @param calle
+     * @param tipo
+     * @param contrasenia
+     * @param imagen 
+     */
     public Cliente(String nombre, int carrera, int calle, TipoClien tipo, String contrasenia, byte[] imagen) {
 
         this.nombre = nombre;
@@ -72,14 +81,17 @@ public class Cliente {
     /**
      * constructor parametrizado
      * @param nombre nombre se usuario
-     * @param contrasenia contraseña
+     * @param contrasenia contraseï¿½a
      */
     public Cliente(String nombre, String contrasenia) {
        this.nombre = nombre;
        this.contrasenia = contrasenia;
     }
 
-    //SET AND GET  
+    /**
+     * Getter y setter
+     * @return 
+     */
     public int getCarrera() {
         return carrera;
     }
@@ -142,6 +154,5 @@ public class Cliente {
 
     public void setIdrestaurante(int idrestaurante) {
         this.idrestaurante = idrestaurante;
-    }
-    
+    } 
 }

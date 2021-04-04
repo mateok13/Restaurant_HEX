@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.common.entities;
 
-import java.time.LocalDateTime;
-
 /**
- *representa el historial del pedido
- * @author james, jhonfer, camilo, mateo, edynson
+ * Representa el historial del pedido
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class HistorialPed {
     /**
@@ -28,7 +21,12 @@ public class HistorialPed {
      * fecha en la que es pagado el pedido
      */
     private String fechaPagado;
-
+    
+    /**
+     * constructor por defecto
+     */
+    public HistorialPed() {}
+    
     /**
      * constructor parametrizado
      * @param idPed identificador
@@ -44,12 +42,9 @@ public class HistorialPed {
     }
 
     /**
-     * constructor por defecto
+     * Getter y Setter
+     * @return 
      */
-    public HistorialPed() {
-    }
-
-    //SET AND GET
     public String getNombre() {
         return nombre;
     }
@@ -80,8 +75,5 @@ public class HistorialPed {
 
     public void setIdPed(int idPed) {
         this.idPed = idPed;
-    }
-    
-    
-    
+    }  
 }

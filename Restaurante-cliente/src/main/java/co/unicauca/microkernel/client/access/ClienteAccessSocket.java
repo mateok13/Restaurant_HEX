@@ -13,9 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
- * @author EdynsonMJ
- * @author Jhonny Rosero
+ * Conexión del Frontend con el backend por el socket
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class ClienteAccessSocket implements IClienteAccess {
 
@@ -43,7 +42,6 @@ public class ClienteAccessSocket implements IClienteAccess {
             //se establece la conexion
             mySocket.connect();
             //se envia la solicitud y se recibe una respuesta,
-            //(CREO)AQUI VALIDAR SI SE DIO CON EXITO LA OPERACION, SEGUN LA REPUESTA DEL SERVIDOR
             jsonResponse = mySocket.sendStream(requestJson);
             mySocket.closeStream();
             mySocket.disconnect();
@@ -139,8 +137,6 @@ public class ClienteAccessSocket implements IClienteAccess {
         return valor;
     }
 
-
-
     private String pluginJson(int idCliente, int idPedido, String action){
         var protocol = new Protocol();
         //el orden debe ser respetado
@@ -201,8 +197,7 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.addParameter("precio", "" + plato.getPrecio());
         protocol.addParameter("descripcion", plato.getDescripcion());
         protocol.addParameter("menu", ""+plato.getMenuEsp());
-        protocol.setBytes(plato.getImagen());
-        
+        protocol.setBytes(plato.getImagen());      
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json enviado: "+requestJson);
@@ -240,8 +235,7 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.addParameter("precio", ""+racion.getPrecio());
         protocol.addParameter("tipo", ""+racion.getTipo());
         protocol.addParameter("dia", ""+racion.getMenuId());
-        protocol.setBytes(racion.getImagen());
-        
+        protocol.setBytes(racion.getImagen());       
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json enviado: "+requestJson);
@@ -257,7 +251,6 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.addParameter("plae_descripcion", instancia.getDescripcion());
         protocol.addParameter("plae_precio", valueOf(instancia.getPrecio()));
         protocol.setBytes(instancia.getImagen());
-
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: " + requestJson);
@@ -291,7 +284,6 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.addParameter("rac_tipo", instancia.getTipo().toString());
         protocol.addParameter("rac_precio", valueOf(instancia.getPrecio()));
         protocol.setBytes(instancia.getImagen());
-
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: " + requestJson);
@@ -331,12 +323,10 @@ public class ClienteAccessSocket implements IClienteAccess {
         var protocol = new Protocol();
         protocol.setResource("administrador");
         protocol.setAction("deleteRacionDia");
-        protocol.addParameter("rac_id", ""+rac_id);
-        
+        protocol.addParameter("rac_id", ""+rac_id);      
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
-        
         return requestJson;
     }
 
@@ -344,14 +334,11 @@ public class ClienteAccessSocket implements IClienteAccess {
         var protocol = new Protocol();
         protocol.setResource("administrador");
         protocol.setAction("deletePlatoEspecial");
-        protocol.addParameter("plae_id", ""+plae_id);
-        
+        protocol.addParameter("plae_id", ""+plae_id);      
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
-
         return requestJson;
-
     }
 
     @Override
@@ -363,9 +350,7 @@ public class ClienteAccessSocket implements IClienteAccess {
         //devuelve un string en formato Json que lo que se enviara
         var requestJson = crearPedido(instancia);
         var response=procesarConexion(requestJson);
-
         return response;
-
     }
 
     private String crearPedido(Pedido instancia){
@@ -377,12 +362,10 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.addParameter("res_id", String.valueOf(instancia.getResId()));
         protocol.addParameter("ped_estado", String.valueOf(instancia.getEstado()));
         protocol.addParameter("ped_fecha_creado", String.valueOf(instancia.getFechaCreado()));
-        protocol.addParameter("ped_fecha_pagado", String.valueOf(instancia.getFechaPagado()));
-        
+        protocol.addParameter("ped_fecha_pagado", String.valueOf(instancia.getFechaPagado()));        
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
-
         return requestJson;
     }
 
@@ -445,7 +428,6 @@ public class ClienteAccessSocket implements IClienteAccess {
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
-
         return requestJson;
     }
 
@@ -458,8 +440,8 @@ public class ClienteAccessSocket implements IClienteAccess {
             return null;
         }
         return valueOf(instancia.getPlaepId());
-
     }
+    
     private String crearPlatoEspecialPedido(PlatoEspecialPed instancia){
         Protocol protocol = new Protocol();
         protocol.setResource("comprador");
@@ -467,13 +449,13 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.addParameter("plaep_id", String.valueOf(instancia.getPlaepId()));
         protocol.addParameter("ped_id", String.valueOf(instancia.getPedId()));
         protocol.addParameter("plae_id", String.valueOf(instancia.getPlaeId()));
-        protocol.addParameter("cantidad", String.valueOf(instancia.getCantidad()));
-        
+        protocol.addParameter("cantidad", String.valueOf(instancia.getCantidad()));  
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
         System.out.println("json: "+requestJson);
         return requestJson;
     }
+    
     @Override
     public String payedPedido(Pedido pedido) throws Exception{
         String respJson = payedPedidoJson(pedido);
@@ -482,20 +464,17 @@ public class ClienteAccessSocket implements IClienteAccess {
         }
         return ""+pedido;
     }
+    
     private String payedPedidoJson(Pedido pedido){
         Protocol protocol = new Protocol();
         protocol.setResource("comprador");
         protocol.setAction("payedPedido");
         protocol.addParameter("ped_id", String.valueOf(pedido.getIdPedido()));
-        protocol.addParameter("cli_id", String.valueOf(pedido.getCliente()));
-        
-        
+        protocol.addParameter("cli_id", String.valueOf(pedido.getCliente()));        
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
         System.out.println("json: "+requestJson);
-
         return requestJson;
-
     }
     @Override
     public String cancelPedido(Pedido pedido) throws Exception{
@@ -510,15 +489,13 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.setResource("comprador");
         protocol.setAction("cancelPedido");
         protocol.addParameter("ped_id", String.valueOf(pedido.getIdPedido()));
-        protocol.addParameter("cli_id", String.valueOf(pedido.getCliente()));
-        
+        protocol.addParameter("cli_id", String.valueOf(pedido.getCliente()));       
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
         System.out.println("json: "+requestJson);
-
         return requestJson;
-
     }
+    
     @Override
     public String deleteRacionPedido(int idRacionPedido) throws Exception{
         String respJson = deleteRacionPedidoJson(idRacionPedido);
@@ -527,19 +504,18 @@ public class ClienteAccessSocket implements IClienteAccess {
         }
         return ""+idRacionPedido;
     }
+    
     private String deleteRacionPedidoJson(int idRacionPedido){
         Protocol protocol = new Protocol();
         protocol.setResource("comprador");
         protocol.setAction("deleteRacionPedido");
-        protocol.addParameter("racp_id", ""+idRacionPedido);
-        
+        protocol.addParameter("racp_id", ""+idRacionPedido);        
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
         System.out.println("json: "+requestJson);
-
         return requestJson;
-
     }
+    
     @Override
     public String deletePlatoEspecialPedido(int idPlatoEspecialPedido) throws Exception{
         String respJson = deletePlatoEspecialPedidoJson(idPlatoEspecialPedido);
@@ -548,16 +524,15 @@ public class ClienteAccessSocket implements IClienteAccess {
         }
         return ""+idPlatoEspecialPedido;
     }
+    
     private String deletePlatoEspecialPedidoJson(int idPlatoEspecialPedido){
         Protocol protocol = new Protocol();
         protocol.setResource("comprador");
         protocol.setAction("deletePlatoEspecialPedido");
-        protocol.addParameter("plaep_id", ""+idPlatoEspecialPedido);
-        
+        protocol.addParameter("plaep_id", ""+idPlatoEspecialPedido);       
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
         System.out.println("json: "+requestJson);
-
         return requestJson;
     }
     
@@ -595,6 +570,7 @@ public class ClienteAccessSocket implements IClienteAccess {
         }
         return restaurant.getNombre();
     }
+    
     private String createRestaurantJson(Restaurante restaurante){
         var protocol = new Protocol();
         protocol.setResource("administrador");
@@ -605,13 +581,9 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.addParameter("res_foto", Arrays.toString(restaurante.getImagen()));
         protocol.addParameter("res_calle", String.valueOf(restaurante.getCalle()));
         protocol.addParameter("res_carrera", String.valueOf(restaurante.getCarrera()));
-
-
-
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
         System.out.println("json: "+requestJson);
-
         return requestJson;
     }
     
@@ -742,7 +714,7 @@ public class ClienteAccessSocket implements IClienteAccess {
         return requestJson;
     }
       
-     private Recurso convertJsonRecurso(String respuestaConsulta){
+    private Recurso convertJsonRecurso(String respuestaConsulta){
         var gson=new Gson();
         var list = new TypeToken<List<Recurso>>(){}.getType();
         List<Recurso> lista = gson.fromJson(respuestaConsulta, list);
@@ -757,6 +729,7 @@ public class ClienteAccessSocket implements IClienteAccess {
         String response=procesarConexion(requestJson);
         return jsonList(response);
     }
+    
     private String createlistJson(String resource,String accion,String[] parameters){
         var protocol=new Protocol();
         protocol.setResource(resource);
@@ -765,9 +738,9 @@ public class ClienteAccessSocket implements IClienteAccess {
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
-
         return requestJson;
     }
+    @Override
     public String addRacionPedido(RacionPed instancia) throws Exception {
         String jsonResponse = null;
         //devuelve un string en formato Json que lo que se enviara
@@ -776,8 +749,8 @@ public class ClienteAccessSocket implements IClienteAccess {
             return null;
         }
         return valueOf(instancia.getRacpId());
-
     }
+    
     private String crearRacionPedido(RacionPed instancia){
         var protocol = new Protocol();
         protocol.setResource("comprador");
@@ -785,9 +758,7 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.addParameter("racp_id", String.valueOf(instancia.getRacpId()));
         protocol.addParameter("ped_id", String.valueOf(instancia.getPedId()));
         protocol.addParameter("rac_id", String.valueOf(instancia.getRacId()));
-        protocol.addParameter("cantidad", String.valueOf(instancia.getCantidad()));
-        
-
+        protocol.addParameter("cantidad", String.valueOf(instancia.getCantidad()));       
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
@@ -799,89 +770,73 @@ public class ClienteAccessSocket implements IClienteAccess {
     String jsonResponse = null;
         //devuelve un string en formato Json que lo que se enviara
         var requestJson = listRestauranteJson(typeRestaurante);
-        var response = this.procesarConexion(requestJson);
-        
+        var response = this.procesarConexion(requestJson);       
         return jsonListRestaurante(response);
-
     }
 
     private String listRestauranteJson(String typeRestaurante){
         var protocol = new Protocol();
         protocol.setResource("comprador");
-        protocol.setAction("listarRestaurantes");
-        
+        protocol.setAction("listarRestaurantes");      
         protocol.addParameter("tipo_restaurante", typeRestaurante);
-        
-        
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
-
         return requestJson;
     }
     private List<Restaurante> jsonListRestaurante(String jsonRestaurante){
         var gson=new Gson();
         var list = new TypeToken<List<Restaurante>>(){}.getType();
-        return gson.fromJson(jsonRestaurante, list);
-        
+        return gson.fromJson(jsonRestaurante, list);       
     }
     @Override
     public List<HistorialPed> listHistoryPed(int idCliente, String estado)throws Exception{
     String jsonResponse = null;
         //devuelve un string en formato Json que lo que se enviara
         var requestJson = listHistoriaPedJson(idCliente, estado);
-        var response = this.procesarConexion(requestJson);
-        
+        var response = this.procesarConexion(requestJson);       
         return jsonListHistoria(response);
-
     }
 
     private String listHistoriaPedJson(int idCliente, String estado){
         var protocol = new Protocol();
         protocol.setResource("comprador");
-        protocol.setAction("listarHistoria");
-        
+        protocol.setAction("listarHistoria");       
         protocol.addParameter("idCliente", ""+idCliente);
-        protocol.addParameter("estado_pedido", estado);
-        
+        protocol.addParameter("estado_pedido", estado);       
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
-
         return requestJson;
     }
+    
     private List<HistorialPed> jsonListHistoria(String jsonHistoria){
         var gson=new Gson();
         var list = new TypeToken<List<HistorialPed>>(){}.getType();
-        return gson.fromJson(jsonHistoria, list);
-        
+        return gson.fromJson(jsonHistoria, list);       
     }
+    
     @Override
     public List<CarritoG> listCarritoRacion(int idCliente, int idPedido,String resource)throws Exception{
     String jsonResponse = null;
         //devuelve un string en formato Json que lo que se enviara
         var requestJson = listCarritoRacionJson(idCliente,idPedido,resource);
-        var response = this.procesarConexion(requestJson);
-        
+        var response = this.procesarConexion(requestJson);      
         return jsonListCarritoG(response);
-
     }
 
     private String listCarritoRacionJson(int idCliente, int idPedido,String resource){
         var protocol = new Protocol();
         protocol.setResource(resource);
-        protocol.setAction("listarCarritoRacion");
-        
+        protocol.setAction("listarCarritoRacion");       
         protocol.addParameter("cliente_id", ""+idCliente);
         protocol.addParameter("pedido_id", ""+idPedido);
-        
-        
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
-        
         return requestJson;
     }
+    
     private List<Pedido> jsonList(String jsonListar){
         var gson=new Gson();
         var list = new TypeToken<List<Pedido>>(){}.getType();
@@ -893,27 +848,22 @@ public class ClienteAccessSocket implements IClienteAccess {
     String jsonResponse = null;
         //devuelve un string en formato Json que lo que se enviara
         var requestJson = listCarritoPlatoEspecialJson(idCliente,idPedido,resource);
-        var response = this.procesarConexion(requestJson);
-        
+        var response = this.procesarConexion(requestJson);        
         return jsonListCarritoG(response);
-
     }
 
     private String listCarritoPlatoEspecialJson(int idCliente, int idPedido, String resource){
         var protocol = new Protocol();
         protocol.setResource(resource);
-        protocol.setAction("listarCarritoPlatoEspecial");
-        
+        protocol.setAction("listarCarritoPlatoEspecial");      
         protocol.addParameter("cliente_id", ""+idCliente);
         protocol.addParameter("pedido_id", ""+idPedido);
-        
-        
         var gson = new Gson();
         var requestJson = gson.toJson(protocol);
         out.println("json: "+requestJson);
-
         return requestJson;
     }
+    
     private List<CarritoG> jsonListCarritoG(String jsonRestaurante){
         var gson=new Gson();
         var list = new TypeToken<List<CarritoG>>(){}.getType();
@@ -941,21 +891,20 @@ public class ClienteAccessSocket implements IClienteAccess {
         }
        return valor;
     }
+    
     private String CantidadJson(String typeOrden,int idOrden, int cantidadActual, String action){
         Protocol protocol = new Protocol();
         protocol.setResource("comprador");
         protocol.setAction(action);
         protocol.addParameter("type_orden", typeOrden);
         protocol.addParameter("id_orden", ""+idOrden);
-        protocol.addParameter("cantidad_actual", ""+cantidadActual);
-        
-        
+        protocol.addParameter("cantidad_actual", ""+cantidadActual);       
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
         System.out.println("json: "+requestJson);
-
         return requestJson;
     }
+    
     @Override
     public String registrarCliente(Cliente cliente, String resource)throws Exception{
         String jsonResponse = null;
@@ -966,6 +915,7 @@ public class ClienteAccessSocket implements IClienteAccess {
         }
         return cliente.getNombre();
     }
+    
     private String clienteJson(Cliente cliente, String resource){
         var protocol = new Protocol();
         protocol.setResource(resource);
@@ -976,13 +926,10 @@ public class ClienteAccessSocket implements IClienteAccess {
         protocol.addParameter("tipo", cliente.getTipo().toString());
         protocol.addParameter("contraseña", cliente.getContrasenia());
         protocol.setBytes(cliente.getImagen());
-
         System.out.println(protocol.getParameters().get(2).getValue());
         Gson gson = new Gson();
         String requestJson = gson.toJson(protocol);
         System.out.println("json: "+requestJson);
-
         return requestJson;
     }
-
 }

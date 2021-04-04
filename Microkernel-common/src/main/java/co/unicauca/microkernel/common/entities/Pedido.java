@@ -3,8 +3,8 @@ package co.unicauca.microkernel.common.entities;
 import java.time.LocalDateTime;
 
 /**
- *representa el pediado realizado por un cliente
- * @author edynson, james, mateo, jhonfer,camilo
+ * Representa el pediado realizado por un cliente
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class Pedido {
     /**
@@ -30,8 +30,11 @@ public class Pedido {
     /**
      * fecha de pado del pedido
      */
-    private LocalDateTime fechaPagado;
-
+    private LocalDateTime fechaPagado;    
+    /**
+     * constructor por defecto
+     */
+    public Pedido() {}
     /**
      * constructor parametrizado pedido
      * @param idPedido identificador del pedido
@@ -58,7 +61,12 @@ public class Pedido {
         this.cliente = idCliente;
         this.resId = resId;
     }
-    
+    /**
+     * Constructor Parametrizado
+     * @param idPedido
+     * @param cliente
+     * @param resId 
+     */
     public Pedido(int idPedido, int cliente, int resId) {
         this.idPedido = idPedido;
         this.cliente = cliente;
@@ -66,12 +74,9 @@ public class Pedido {
     }
 
     /**
-     * constructor por defecto
+     * Getter y setter
+     * @return 
      */
-    public Pedido() {
-        
-    }
-//SET AND GET
     public int getIdPedido() {
         return idPedido;
     }
@@ -118,7 +123,5 @@ public class Pedido {
 
     public void setFechaPagado(LocalDateTime fechaPagado) {
         this.fechaPagado = fechaPagado;
-    }
-    
-    
+    }  
 }

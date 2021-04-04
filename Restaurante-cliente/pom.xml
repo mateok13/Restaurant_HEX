@@ -43,14 +43,14 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>course.microkernel</groupId>
-            <artifactId>Microkernel-common</artifactId>
-            <version>0.1.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE120-u1</version>
+        </dependency>
+        <dependency>
+            <groupId>course.microkernel</groupId>
+            <artifactId>Microkernel-common</artifactId>
+            <version>0.1.0</version>
         </dependency>
     </dependencies>
     <properties>

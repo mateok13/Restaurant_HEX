@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.common.entities;
 
 /**
- *
- * @author edynson muñoz, jhonfer ruiz, mateo, camilo
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class CarritoG{
     private int idCarrito;
@@ -15,14 +9,15 @@ public class CarritoG{
     private int precio;
     private int cantidad;
     
+    public CarritoG(){}
+    
     public CarritoG(int idCarrito, String nombre, int precio, int cantidad) {
         this.idCarrito = idCarrito;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
     }
-    public CarritoG(){}
-
+    
     public int getIdCarrito() {
         return idCarrito;
     }
@@ -53,11 +48,5 @@ public class CarritoG{
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-    
-    
-    
-    
-    
-    
+    } 
 }

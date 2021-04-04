@@ -6,19 +6,25 @@ import java.util.List;
 /**
  * Protocolo de comunicación entre la aplicación cliente y el servidor
  *
- * @author Libardo, Julio
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class Protocol {
-
     private String resource;
     private String action;
     private List<Parameter> parameters;
     private byte[] bytes;
-
+    
+    /**
+     * Constructor por Defecto
+     */
     public Protocol() {
         parameters = new ArrayList<>();
     }
     
+    /**
+     * Getter y setter
+     * @return 
+     */
     public String getResource() {
         return resource;
     }
@@ -53,7 +59,6 @@ public class Protocol {
 
     public void addParameter(String name, String value) {
         parameters.add(new Parameter(name, value));
-    }
-    
+    } 
 }
 

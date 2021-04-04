@@ -4,10 +4,9 @@ import co.unicauca.microkernel.common.entities.*;
 
 
 /**
- *comunicacion con la capa de bajo nivel
+ * Comunicación con la capa de bajo nivel
  * metodos contra la base de datos
- * @author EdynsonMJ
- * @author Jhonny Rosero
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class PlatoServicio {
     /**
@@ -133,14 +132,15 @@ public class PlatoServicio {
         return repositorio.deletePlatoEspecialPedido(idPlatoEspecialPedido);
     }
 
-/**
- * verifica la cuenta de un cliente
- * @param cliente datos de un cliente
- * @return 
- */
-   public String validarAcceso(Cliente cliente){
-       return repositorio.validarAcceso(cliente);
-   }
+    /**
+     * verifica la cuenta de un cliente
+     *
+     * @param cliente datos de un cliente
+     * @return
+     */
+    public String validarAcceso(Cliente cliente) {
+        return repositorio.validarAcceso(cliente);
+    }
 
     /**
      * obtiene la lista de raciones para todos los dias

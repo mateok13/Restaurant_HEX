@@ -1,6 +1,6 @@
 # Domicell
 
-Laboratorio de ingenieria del software II
+Laboratorio de ingeniería del software II
 
 Proyecto final 
 
@@ -22,12 +22,12 @@ Integrantes:
 
 ## Introducción
 
-Este proyecto desarrolla una aplicacion que permite hacer pedidos a domicilo sobre restaurantes en Popayan. Este proyecto se desarrolla aplicando las habilidades desarrolladas en el transcurso de la materia.
+Este proyecto desarrolla una aplicación que permite hacer pedidos a domicilo sobre restaurantes en Popayán. Este se desarrolla aplicando las habilidades desarrolladas en el transcurso de la materia.
 
-El proyecto desarrolla la combinacion de los siguientes patrones arquitecturales: cliente-servidor, microkernel, patron hexagonal.
+El proyecto desarrolla la combinación de los siguientes patrones arquitecturales: cliente-servidor, microkernel, patrón hexagonal.
 
 ****
 
-## Documento
+## Documentación
 
-* **Link:**  [DOMICELL](https://drive.google.com/file/d/1wgd6-tQti9LU3BXahShLRiFcQ3A251R8/view?usp=sharing)
+* **Documento:**  [DOMICELL](https://drive.google.com/file/d/1wgd6-tQti9LU3BXahShLRiFcQ3A251R8/view?usp=sharing)

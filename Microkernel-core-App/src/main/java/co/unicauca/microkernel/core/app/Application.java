@@ -1,10 +1,13 @@
 package co.unicauca.microkernel.core.app;
 
-
 import co.unicauca.microkernel.core.infra.RestauranteServerSocket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Conexión del Backend con el Frontend
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
+ */
 public class Application {
 
     public static void main(String[] args) {

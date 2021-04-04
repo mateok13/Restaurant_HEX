@@ -1,8 +1,8 @@
 package co.unicauca.microkernel.common.entities;
 
 /**
- *enum que representa los estado del pedido
- * @author jafes
+ * Enum que representa los estado del pedido
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public enum EstadoPed {
     CREADO,PAGADO,CANCELADO

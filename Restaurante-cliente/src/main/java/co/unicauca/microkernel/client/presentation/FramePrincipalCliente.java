@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 import static co.unicauca.microkernel.client.access.Factory.getInstance;
@@ -23,8 +18,8 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz del Usuario cliente
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class FramePrincipalCliente extends javax.swing.JFrame {
     //listas
@@ -36,7 +31,6 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
     //servicios
     IClienteAccess service;
     ClienteService servicioRestaurante;
-
     private static String tipoRestaurante;
     private static String estadoPedido;
     private static int idCliente;
@@ -282,17 +276,10 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
                 ((JButton) value).doClick();
                 var boton = (JButton) value;
                 if (boton.getName().equals("Pedir")) {
-                    System.out.println("id cliente: "+idCliente+" id res:"+restaurantes.get(row).getId());
                     Pedido pedido = new Pedido(idCliente,this.restaurantes.get(row).getId());
                     try {
                         int idPedido = Integer.parseInt(this.servicioRestaurante.addPedido(pedido));
-                        System.out.println("ide pedido: "+idPedido);
                         Pedido aux = new Pedido(idPedido,idCliente,this.restaurantes.get(row).getId());
-                        System.out.println("cliente"+aux.getCliente());
-                        System.out.println("estado"+aux.getEstado());
-                        System.out.println("id pedido"+aux.getIdPedido());
-                        System.out.println("restaurante id"+aux.getResId());
-                        //HacerPedido frameRacion = new HacerPedido(aux,this.servicioRestaurante);
                         HacerPedido frameRacion = new HacerPedido(aux,this.servicioRestaurante);
                         frameRacion.setVisible(true);
                         this.setVisible(false);
@@ -323,7 +310,6 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
                 var boton = (JButton) value;
                 if (boton.getName().equals("Visualizar")) {
                     String aux = String.valueOf(cbxEstadoDelPedido.getSelectedItem());
-                    System.out.println(aux+"ESTE ES EL ESTADO DEL PEDIDO");
                     if (aux.equals("Creado")){
                         Pedido pedido = new Pedido(this.historiaPedidos.get(row).getIdPed(),idCliente);
                         try {
@@ -340,7 +326,6 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
                         }catch (Exception ex) {
                             Logger.getLogger(FramePrincipalAdmin.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        //se va a confirmar pedido donde esta el monto
                     }
                     
                 }

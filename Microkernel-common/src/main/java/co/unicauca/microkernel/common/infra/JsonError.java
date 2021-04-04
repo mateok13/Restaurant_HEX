@@ -3,10 +3,9 @@ package co.unicauca.microkernel.common.infra;
 /**
  * Representa un error
  *
- * @author Libardo, Julio
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class JsonError {
-
     /**
      * Ej. 404
      */
@@ -22,8 +21,7 @@ public class JsonError {
     /**
      * Constructor por defecto
      */
-    public JsonError() {
-    }
+    public JsonError() {}
     /**
      * Constructor parametrizado
      * @param code
@@ -35,7 +33,11 @@ public class JsonError {
         this.error = error;
         this.message = message;
     }
-
+    
+    /**
+     * Getter y setter
+     * @return 
+     */
     public String getCode() {
         return code;
     }
@@ -59,5 +61,4 @@ public class JsonError {
     public void setMessage(String message) {
         this.message = message;
     }
-
 }

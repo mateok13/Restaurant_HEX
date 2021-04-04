@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 import co.unicauca.microkernel.client.access.Factory;
@@ -17,14 +12,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz de Inicio o Main
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class GUILogin extends javax.swing.JFrame {
 
     private IClienteAccess service;
     private ClienteService servicioRestaurante;
-    //pnlFondo fondo = new pnlFondo(this.getWidth(),this.getHeight());
 
     /**
      * Creates new form GUILogin2
@@ -170,7 +164,6 @@ public class GUILogin extends javax.swing.JFrame {
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         Cliente us = new ClienteCrypt(this.txtNombreUsu.getText(), this.txtContrasenia.getText());
-        
         String re = "";
         String[] arrayResult = null;
         List<String> datoRestaurante = new ArrayList<>();
@@ -178,34 +171,29 @@ public class GUILogin extends javax.swing.JFrame {
             re = servicioRestaurante.validarAcceso(us);
             if (!re.isEmpty()) {
                 arrayResult = re.split("-");
+                String tipoUsuario = arrayResult[0];
                 int idCliente = Integer.parseInt(arrayResult[1]);
-                System.out.println(idCliente);
-                for (int i = 1; i < arrayResult.length; i = i + 3) {
-                    datoRestaurante.add(arrayResult[i] + "-" + arrayResult[i + 1]);
+                if (arrayResult.length > 4) {
+                    datoRestaurante = obtenerRestaurantes(arrayResult);
+                }else if(arrayResult.length == 4){
+                    datoRestaurante.add(arrayResult[2] + "-" + arrayResult[3]);
                 }
-                for (int i = 1; i < arrayResult.length; i = i + 3) {
-                    System.out.println("[");
-                }
-
                 datoRestaurante.add(this.txtNombreUsu.getText());
                 //se controla que tipo de usuario es dependiendo el tipo se le carga su respectiva interfaz
-                if (arrayResult[0].equals("ADMINISTRADOR")) {
-
+                if (tipoUsuario.equals("ADMINISTRADOR")) {
                     this.setVisible(false);
-                    JOptionPane.showMessageDialog(null, "Bienvenido");
+                    JOptionPane.showMessageDialog(null, "Bienvenido Administrador");
                     this.limpiarCampos();
                     FramePrincipalAdmin ingreso = new FramePrincipalAdmin(datoRestaurante,idCliente);
                     ingreso.setVisible(true);
                     ingreso.pack();
                 }
-                if (arrayResult[0].equals("COMPRADOR")) {
+                if (tipoUsuario.equals("COMPRADOR")) {
                     this.setVisible(false);
                     this.limpiarCampos();
                     JOptionPane.showMessageDialog(null, "Bienvenido");
                     FramePrincipalCliente ingreso = new FramePrincipalCliente(idCliente);
                     ingreso.setVisible(true);
-                    // EdynsonModificarRacion ingresos = new EdynsonModificarRacion();
-                    //ingresos.setVisible(true);
                     ingreso.pack();
                 }
             }else {
@@ -215,7 +203,15 @@ public class GUILogin extends javax.swing.JFrame {
             Logger.getLogger(GUILogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnInicioActionPerformed
-
+    
+    private List<String> obtenerRestaurantes(String[] datos){
+        List<String> restaurants = new ArrayList<>();
+        for (int i = 2; i < datos.length; i += 4) {
+            restaurants.add(datos[i] + "-" + datos[i + 1]);
+        }
+        return restaurants;
+    }
+    
     private void limpiarCampos(){
         this.txtNombreUsu.setText("");
         this.txtContrasenia.setText("");
@@ -232,17 +228,14 @@ public class GUILogin extends javax.swing.JFrame {
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         RegistrarUsuario frame = new RegistrarUsuario(this.servicioRestaurante);
         frame.setVisible(true);
-        
     }//GEN-LAST:event_btnRegistroActionPerformed
 
-    private void habilitarInicio(){
-        
+    private void habilitarInicio(){ 
         if(this.txtNombreUsu.getText().isBlank() || this.txtContrasenia.getText().isBlank()){
             this.btnInicio.setEnabled(false);
         }else{
             this.btnInicio.setEnabled(true);
-        }
-        
+        }    
     }
     /**
      * @param args the command line arguments

@@ -3,9 +3,8 @@ package co.unicacuca.microkernel.core.dominio;
 import co.unicauca.microkernel.common.entities.*;
 
 /**
- *interface del repositorio de platos, usarla mediante inyeccion de dependencias
- * @author EdynsonMJ
- * @author Jhonny Rosero
+ * Interface del repositorio de platos, usarla mediante inyeccion de dependencias
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public interface IPlatoRepositorio {
  
@@ -105,7 +104,6 @@ public interface IPlatoRepositorio {
      * @param idRestaurante restaurante asociado, identificador
      * @return 
      */
-    //james no te pases
     public String listaPedido(int idRestaurante);
     public String payedPedido(Pedido pedido);
     public String cancelPedido(Pedido pedido);

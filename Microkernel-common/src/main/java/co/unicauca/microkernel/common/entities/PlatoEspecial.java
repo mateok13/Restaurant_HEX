@@ -1,8 +1,8 @@
 package co.unicauca.microkernel.common.entities;
 
 /**
- *esta clase representa un plato especial
- * @author Edynson muñoz, camilo, jhonfer, mateo,james
+ * Representa un plato especial
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class PlatoEspecial{
     /**
@@ -40,6 +40,7 @@ public class PlatoEspecial{
      * @param nombre nombre del plato
      * @param precio precio para la venta
      * @param menuEsp
+     * @param imagen
      */
     public PlatoEspecial(int id_pe, int menuEsp, String nombre, String descripcion, int precio,byte [] imagen) {
         this.menuEsp = menuEsp;
@@ -50,7 +51,10 @@ public class PlatoEspecial{
         this.imagen=imagen;
     }
 
-//SET AND GET
+    /**
+     * Getter y setter
+     * @return 
+     */
     public int getMenuEsp() {
         return menuEsp;
     }

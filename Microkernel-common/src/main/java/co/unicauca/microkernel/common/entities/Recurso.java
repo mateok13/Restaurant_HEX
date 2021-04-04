@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.common.entities;
 
 /**
- *representa un objeto en bytes mas especificamente imagenes, que se encuentran en la base de datos
- * y seran usadas en el proyecto
- * @author EdynsonMJ
+ * Representa un objeto en bytes mas especificamente imagenes, que se encuentran en la base de datos
+ * y serán usadas en el proyecto
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class Recurso {
     /**
@@ -23,9 +18,7 @@ public class Recurso {
     /**
      * constructor por defecto
      */
-    public Recurso() {
-    }
-
+    public Recurso() {}
     /**
      * constructor parametrizado
      * @param nombre nombre del recurso
@@ -35,7 +28,10 @@ public class Recurso {
         this.nombre = nombre;
         this.recurso = recurso;
     }
-//SET AND GET
+    /**
+     * Getter y setter
+     * @return 
+     */
     public String getNombre() {
         return nombre;
     }
@@ -50,6 +46,5 @@ public class Recurso {
 
     public void setRecurso(byte[] recurso) {
         this.recurso = recurso;
-    }
-    
+    }   
 }

@@ -1,8 +1,8 @@
 package co.unicauca.microkernel.common.entities;
 
 /**
- *representa un restaurante
- * @author Edynson, camilo, jhonfer, mateo, james
+ * Representa un restaurante
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class Restaurante {
     /**
@@ -10,7 +10,7 @@ public class Restaurante {
      */
     private int id;
     /**
-     * identificador del cleinte o dueño asociado
+     * identificador del cleinte o dueï¿½o asociado
      */
     private int idCliente;
     /**
@@ -36,18 +36,17 @@ public class Restaurante {
     /**
      * constructor por defecto
      */
-    public Restaurante() {
-    }
-/**
- * constructor parametrizado
- * @param id identificador del rataurante
- * @param idcliente usuario asociado
- * @param codigo 
- * @param nombre
- * @param imagen imagen que representa el restaurante
- * @param carrera direccion
- * @param calle direccion
- */
+    public Restaurante() {}
+    /**
+    * constructor parametrizado
+    * @param id identificador del rataurante
+    * @param idcliente usuario asociado
+    * @param codigo 
+    * @param nombre
+    * @param imagen imagen que representa el restaurante
+    * @param carrera direccion
+    * @param calle direccion
+    */
     public Restaurante(int id,int idcliente, String codigo, String nombre, byte[] imagen, int carrera,int calle) {
         this.id = id;
         this.idCliente=idcliente;
@@ -57,7 +56,11 @@ public class Restaurante {
         this.calle = calle;
         this.carrera = carrera;
     }
-
+    
+    /**
+     * Getter y setter
+     * @return 
+     */
     public String getNombre() {
         return nombre;
     }
@@ -89,6 +92,7 @@ public class Restaurante {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+    
     public int getCarrera() {
         return carrera;
     }
@@ -111,6 +115,5 @@ public class Restaurante {
 
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
-    }
-    
+    }   
 }

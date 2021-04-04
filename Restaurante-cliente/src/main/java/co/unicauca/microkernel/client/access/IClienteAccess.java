@@ -2,12 +2,10 @@ package co.unicauca.microkernel.client.access;
 
 import java.util.List;
 import co.unicauca.microkernel.common.entities.*;
-import co.unicauca.microkernel.common.infra.Protocol;
 
 /**
- * entidad abstracta del los servicios que el cliente puede solicitar al servidor
- * @author EdynsonMJ
- * @author Jhonny Rosero
+ * Entidad abstracta del los servicios que el cliente puede solicitar al servidor
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public interface IClienteAccess {
     

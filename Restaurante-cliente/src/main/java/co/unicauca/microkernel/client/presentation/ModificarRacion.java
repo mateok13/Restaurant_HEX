@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 import co.unicauca.microkernel.client.domain.ClienteService;
@@ -21,16 +16,15 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz de modificar las raciones
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class ModificarRacion extends javax.swing.JFrame {
-
     private RacionDia racion;
     private ClienteService cliente;
     private FramePrincipalAdmin frame;
     /**
-     * Creates new form FrameEdynson
+     * Creates new form Frame
      */
     public ModificarRacion(RacionDia racion, ClienteService cliente, FramePrincipalAdmin frame) {
         this.cliente = cliente;
@@ -297,7 +291,6 @@ public class ModificarRacion extends javax.swing.JFrame {
         var j = new JFileChooser();
         var fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         j.setFileFilter(fil);
-
         var s = j.showOpenDialog(this);
         if (s == APPROVE_OPTION) {
             var ruta = j.getSelectedFile().getAbsolutePath();
@@ -331,11 +324,9 @@ public class ModificarRacion extends javax.swing.JFrame {
         } catch (Exception ex) {
             getLogger(ModificarRacion.class.getName()).log(SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -371,9 +362,8 @@ public class ModificarRacion extends javax.swing.JFrame {
         this.habilitarBtnActualizar();
     }//GEN-LAST:event_btnQuitarActionPerformed
 
-    //VERIFICAR ESTE METODO
+    
     private void habilitarBtnActualizar() {
-
         if (txtNombre.getText().isBlank()
                 || this.txtPrecio.getText().isBlank()
                 || this.cbxTipo.getSelectedIndex() == 0
@@ -389,7 +379,6 @@ public class ModificarRacion extends javax.swing.JFrame {
             this.btnActualizar.setEnabled(true);
         }
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;

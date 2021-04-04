@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.unicauca.microkernel.client.presentation;
 
 import static co.unicauca.microkernel.client.access.Factory.getInstance;
@@ -28,8 +23,8 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 
 /**
- *
- * @author EdynsonMJ,JhonnyRosero,JhonferRuiz,JuanGonzales,JamesSilva
+ * Interfaz donde se hace el pedido
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class HacerPedido extends javax.swing.JFrame {
     //listas
@@ -48,10 +43,7 @@ public class HacerPedido extends javax.swing.JFrame {
     IClienteAccess service;
     ClienteService servicioRestaurante;
     
-    private static String tipoRestaurante;
-    private static String estadoPedido;
     private Pedido pedido;
-    private String photoNull;
     
     public HacerPedido(Pedido pedido, ClienteService cliente) throws Exception {
         // se inicializan los servicios
@@ -64,7 +56,6 @@ public class HacerPedido extends javax.swing.JFrame {
         tabCarritoE = new TablaCarritoEspeciales();
         tabCarritoRCf = new TablaCarritoRacionCf();
         tabCarritoECf = new TablaCarritoEspecialesCf();
-        
         initComponents();
         //se inicializa el pedido
         this.pedido = pedido;
@@ -80,8 +71,6 @@ public class HacerPedido extends javax.swing.JFrame {
         this.crearTablaCarritoEspeciales(pedido.getIdPedido());
         this.crearTablaRaciones();
         this.crearTablaEspeciales();
-        
-        
     }
 
     /**
@@ -394,15 +383,11 @@ public class HacerPedido extends javax.swing.JFrame {
                 ((JButton) value).doClick();
                 var boton = (JButton) value;
                 if (boton.getName().equals("CarritoR")) {
-                    System.out.println("fila: "+row);
-                    System.out.println("ide: "+this.raciones.get(row).getRacId());
                     RacionPed aux = new RacionPed (pedido.getIdPedido(),this.raciones.get(row).getRacId(),1);
-                    System.out.println(aux.getPedId());
                     try {
                         this.servicioRestaurante.addRacionPedido(aux);
                         this.crearTablaCarritoRaciones(aux.getPedId());
                         this.crearTablaCarritoRacionesCf(aux.getPedId());
-
                     } catch (Exception ex) {
                         Logger.getLogger(FramePrincipalAdmin.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -422,9 +407,7 @@ public class HacerPedido extends javax.swing.JFrame {
                 ((JButton) value).doClick();
                 var boton = (JButton) value;
                 if (boton.getName().equals("CarritoE")) {
-
                     PlatoEspecialPed aux = new PlatoEspecialPed (pedido.getIdPedido(),this.especiales.get(row).getId_pe(),1);
-                    System.out.println(aux.getPedId());
                     try {
                         this.servicioRestaurante.addPlatoEspecialPedido(aux);
                         this.crearTablaCarritoEspeciales(aux.getPedId());
@@ -452,7 +435,6 @@ public class HacerPedido extends javax.swing.JFrame {
     private void tblCarritoRacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCarritoRacionesMouseClicked
         int column = tblCarritoRaciones.getColumnModel().getColumnIndexAtX(evt.getX());
         int row = evt.getY() / tblCarritoRaciones.getRowHeight();
-        
         if (row < tblCarritoRaciones.getRowCount() && row >= 0 && column < tblCarritoRaciones.getColumnCount() && column >= 0) {
             Object value = tblCarritoRaciones.getValueAt(row, column);
             if (value instanceof JButton) {

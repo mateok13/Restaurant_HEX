@@ -3,10 +3,9 @@ package co.unicauca.microkernel.common.infra;
 /**
  * Parametro.
  * Lo usa la clase Protocol
- * @author Libardo, Julio
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class Parameter {
-
     private String name;
     private String value;
 

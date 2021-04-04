@@ -1,8 +1,8 @@
 package co.unicauca.microkernel.common.entities;
 
 /**
- *representa un menu de platos especiales
- * @author edynson, mateo, james, camilo, jhonfer
+ * Representa un menu de platos especiales
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class MenuEspecial {
     /**
@@ -24,7 +24,10 @@ public class MenuEspecial {
         this.res_id = res_id;
     }
 
-    //GET AND SET
+    /**
+     * Getter y setter
+     * @return 
+     */
     public int getId() {
         return id;
     }
@@ -39,7 +42,5 @@ public class MenuEspecial {
 
     public void setRes_id(int res_id) {
         this.res_id = res_id;
-    }
-    
-   
+    } 
 }

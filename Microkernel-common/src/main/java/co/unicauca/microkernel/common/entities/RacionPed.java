@@ -1,14 +1,17 @@
 package co.unicauca.microkernel.common.entities;
 
 /**
- * representa un pedido de racion
- * @author james, camilo, jhonfer, mateo, edynson
+ * Representa un pedido de racion
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class RacionPed {
     /**
-     * identificador del pedido
+     * identificador de la ración pedido
      */
     private int racpId;
+    /**
+     * Identificador del pedido
+     */
     private int pedId;
     /**
      * identificador de la racion
@@ -18,7 +21,11 @@ public class RacionPed {
      * cantidad
      */
     private int cantidad;
-
+    
+    /**
+    * constructor por defecto
+    */
+    public RacionPed() {}
     /**
      * constructor por parametrizado
      * @param racpId identificador 
@@ -43,13 +50,11 @@ public class RacionPed {
         this.racId = racId;
         this.cantidad = cantidad;
     }
-/**
- * constructor por defecto
- */
-    public RacionPed() {
-    }
 
-    //SET AND GET
+    /**
+     * Getter y setter
+     * @return 
+     */
     public int getRacpId() {
         return racpId;
     }
@@ -80,6 +85,5 @@ public class RacionPed {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-    
+    }   
 }

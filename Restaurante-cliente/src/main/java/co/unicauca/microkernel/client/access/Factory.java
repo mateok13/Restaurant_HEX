@@ -3,8 +3,8 @@ package co.unicauca.microkernel.client.access;
 import static co.unicauca.microkernel.common.infra.Utilities.loadProperty;
 
 /**
- * fabrica que retorna una instancia para el acceso al servidor
- * @author EdynsonMJ
+ * Fabrica que retorna una instancia para el acceso al servidor
+ * @author Edynson, Jhonfer, Mateo, Camilo, James
  */
 public class Factory {
     private static Factory instance;
