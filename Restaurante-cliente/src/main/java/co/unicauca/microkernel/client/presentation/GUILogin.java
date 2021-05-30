@@ -182,7 +182,7 @@ public class GUILogin extends javax.swing.JFrame {
                 //se controla que tipo de usuario es dependiendo el tipo se le carga su respectiva interfaz
                 if (tipoUsuario.equals("ADMINISTRADOR")) {
                     this.setVisible(false);
-                    JOptionPane.showMessageDialog(null, "Bienvenido Administrador");
+                    JOptionPane.showMessageDialog(null, "Bienvenido Administrador "+this.txtNombreUsu.getText());
                     this.limpiarCampos();
                     FramePrincipalAdmin ingreso = new FramePrincipalAdmin(datoRestaurante,idCliente);
                     ingreso.setVisible(true);
@@ -190,8 +190,8 @@ public class GUILogin extends javax.swing.JFrame {
                 }
                 if (tipoUsuario.equals("COMPRADOR")) {
                     this.setVisible(false);
+                    JOptionPane.showMessageDialog(null, "Bienvenido "+this.txtNombreUsu.getText());
                     this.limpiarCampos();
-                    JOptionPane.showMessageDialog(null, "Bienvenido");
                     FramePrincipalCliente ingreso = new FramePrincipalCliente(idCliente);
                     ingreso.setVisible(true);
                     ingreso.pack();

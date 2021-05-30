@@ -5,9 +5,12 @@ import co.unicauca.microkernel.client.access.IClienteAccess;
 import co.unicauca.microkernel.client.domain.ClienteService;
 import co.unicauca.microkernel.client.gestionTabla.TablaHistorialPed;
 import co.unicauca.microkernel.client.gestionTabla.TableRestaurantesHaPed;
+import co.unicauca.microkernel.common.entities.Cliente;
+import co.unicauca.microkernel.common.entities.ClienteCrypt;
 import co.unicauca.microkernel.common.entities.HistorialPed;
 import co.unicauca.microkernel.common.entities.Pedido;
 import co.unicauca.microkernel.common.entities.Restaurante;
+import co.unicauca.microkernel.common.infra.Utilities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -344,10 +347,20 @@ public class FramePrincipalCliente extends javax.swing.JFrame {
     private void cerrarSesion(){
         GUILogin guiLogin = new GUILogin();
         this.setVisible(false);
-        JOptionPane.showMessageDialog(null, "Hasta pronto");
+        String name = getNombreCliente(idCliente);
+        JOptionPane.showMessageDialog(null, "Hasta pronto "+name);
         guiLogin.setVisible(true);
         this.dispose();
     }
+    private String getNombreCliente(int idCliente){
+        try {
+            Cliente  cli= this.servicioRestaurante.getClient(idCliente);
+            return Utilities.desencriptar(cli.getNombre());
+        } catch (Exception e) {
+            System.out.println("Fallo al encontrar cliente");
+            return "";
+        }
+    } 
     
     public void crearTablaHistoria(String estado) throws Exception {
         this.tblPedidosEstado.removeAll();

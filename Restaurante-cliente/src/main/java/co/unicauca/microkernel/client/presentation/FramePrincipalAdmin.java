@@ -695,7 +695,7 @@ public class FramePrincipalAdmin extends JFrame {
     private void cerrarSesion(){
         GUILogin guiLogin = new GUILogin();
         this.setVisible(false);
-        JOptionPane.showMessageDialog(null, "Hasta pronto");
+        JOptionPane.showMessageDialog(null, "Hasta pronto "+idRestaurante.get(idRestaurante.size()-1));
         guiLogin.setVisible(true);
         this.dispose();
     }
