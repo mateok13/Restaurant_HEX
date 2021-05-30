@@ -5,7 +5,6 @@ import co.unicauca.microkernel.common.entities.*;
 import co.unicauca.microkernel.common.infra.Utilities;
 import com.google.gson.Gson;
 import java.io.File;
-import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -337,7 +336,6 @@ public class RestauranteRepositorioMysql implements IPlatoRepositorio {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             //se compara el id, OJO Ddebe cumplir estrictamente el orden y el tipo de dato(de las tablas)
             pstmt.setInt(1, rac_id);
-
             pstmt.executeUpdate();
             //se cierra
             pstmt.close();
